@@ -1,0 +1,26 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    registries:
+      - nbc-actions
+  - package-ecosystem: "terraform"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    registries:
+      - nbc-artifactory
+
+registries:
+  nbc-actions:
+    type: git
+    url: https://github.com
+    username: x-access-token
+    password: ${{ secrets.DEPENDABOT_PAT }}
+  nbc-artifactory:
+    type: terraform-registry
+    url: https://artifacts.bnc.ca/artifactory/nbc-terraform
+    username: ${{ secrets.ARTIFACT_MANAGEMENT_USERNAME }}
+    password: ${{ secrets.ARTIFACT_MANAGEMENT_PASSWORD }}

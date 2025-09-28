@@ -1,0 +1,6 @@
+# GitHub Configuration is managed by the terraform team
+.github/ @NBC-IaC/terraform-release-manager
+* @NBC-IaC/terraform-release-manager
+
+# Default Configuration. Will be changed to the team owning the module in the futur.
+*.tf @NBC-IaC/terraform-release-managers

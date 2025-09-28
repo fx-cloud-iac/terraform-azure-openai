@@ -1,0 +1,13 @@
+# Configuration inherits from https://github.com/rubocop-hq/rubocop/blob/master/config/default.yml
+
+AllCops:
+  TargetRubyVersion: 2.7
+
+Metrics/LineLength:
+  Max: 150
+
+Style/WordArray:
+  EnforcedStyle: brackets
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

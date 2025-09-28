@@ -1,0 +1,5 @@
+subscription_id = "43b6e394-4ebb-4ee2-8868-ab52fa37c8e5"
+resource_group_name = "rg-15201-dv-cc-4538"
+storage_account_name = "st15201dvcc9ne2"
+container_name = "tfstate"
+key = "simple-example.azure-openai.tfstate"

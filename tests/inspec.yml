@@ -1,0 +1,10 @@
+name: azure-openai
+title: Azure OpenAI Resource Tests
+maintainer: Azure Platform Team
+copyright: Azure Platform Team
+copyright_email: azure-platform-team@bnc.ca
+license: Apache-2.0
+summary: Tests for Azure OpenAI resource
+version: 1.0.0
+supports:
+  - platform: azure
