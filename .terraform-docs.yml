@@ -1,6 +1,37 @@
-formatter: markdown
-output-file: README.md
-output-mode: inject
-recursive: true
-sort-by: required
-sort: true
+formatter: markdown table
+
+version: ">= 0.19"
+
+recursive:
+  enabled: false
+
+sections:
+  show:
+    - resources
+    - requirements
+    - inputs
+    - outputs
+
+content: |-
+  {{.Requirements }}
+
+  {{.Inputs }}
+
+  {{.Outputs }}
+
+  ## Example
+  ```hcl
+  # examples/full-example/main.tf
+  {{ include "./examples/full-example/main.tf" }}
+  ```hcl
+  #configs/non_production/development/dev/input.tfvars
+  {{ include "./examples/full-example/configs/non_production/development/dev/input.tfvars" }}
+
+output:
+  file: "README.md"
+  mode: inject
+
+# sort variables by required, then name
+sort:
+  enabled: true
+  by: required

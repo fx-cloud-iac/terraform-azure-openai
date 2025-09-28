@@ -1,10 +1,13 @@
-name: azure-openai
-title: Azure OpenAI Resource Tests
+name: tests
+title: Tests Azure OpenAI instance
 maintainer: Azure Platform Team
-copyright: Azure Platform Team
-copyright_email: azure-platform-team@bnc.ca
-license: Apache-2.0
-summary: Tests for Azure OpenAI resource
+copyright: National Bank of Canada
+license: Proprietary, All rights reserved
+summary: Verify that an Azure OpenAI resource has been well created
 version: 1.0.0
+inspec_version: ">= 4.16"
+depends:
+  - name: inspec-azure
+    url: https://github.com/inspec/inspec-azure/archive/v1.118.42.tar.gz
 supports:
-  - platform: azure
+  platform: azure

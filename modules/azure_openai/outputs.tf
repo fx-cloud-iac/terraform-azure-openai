@@ -5,5 +5,5 @@ output "name" {
 
 output "resource_group_name" {
   description = "The name of the OpenAI's resource group"
-  value       = data.azurerm_resource_group.rg.name
+  value       = azurerm_cognitive_account.openai.resource_group_name
 }

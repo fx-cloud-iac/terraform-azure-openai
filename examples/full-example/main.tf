@@ -22,6 +22,6 @@ module "azure_openai" {
   pep_vnet_name               = var.pep_vnet_name
   pep_vnet_resource_group_name = var.pep_vnet_resource_group_name
   private_endpoint_vnet_exceptions = var.private_endpoint_vnet_exceptions
-  local_auth_enabled          = var.local_auth_enabled
-  public_access_enabled       = var.public_access_enabled
+  local_auth_enabled          = false
+  public_access_enabled       = false
 }

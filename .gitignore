@@ -109,3 +109,57 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# DBT
+dist
+*.egg-info
+coverage.xml
+.coverage
+.cache
+mutation.sqlite
+
+# DBT
+target
+dbt_packages
+logs
+venv
+.cache
+.config
+.local
+
+# GoLang
+bin
+pkg
+src
+vendor
+coverage.out
+
+# PHP
+vendor
+.phplint-cache
+
+# SonarQube
+.scannerwork
+
+# MacOS
+.DS_Store
+
+# Misc
+build
+
+# AWS SAM
+.aws-sam
+
+# Terraform
+.terraform
+*.tfstate*
+.terragrunt-cache
+terraform-output.json
+**.terraform.lock.hcl
+**/terraform
+
+# Infracost
+.infracost
+
+# Inspec lock file
+inspec.lock

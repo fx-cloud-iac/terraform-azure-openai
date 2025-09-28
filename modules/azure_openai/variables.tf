@@ -10,13 +10,13 @@ variable "name" {
 }
 
 variable "local_auth_enabled" {
-  description = "Whether to enable local authentication (api key) or not. When `local_auth_enabled` is `false`, resource uses RBAC for authentication & authorization, otherwise, it uses a key."
+  description = "Whether to enabled local authentication (api key) or not. When local_auth_enabled is 'false', resource uses RBAC for authentication & authorization, otherwise, it uses a key."
   type        = bool
   default     = false
 }
 
 variable "public_access_enabled" {
-  description = "Whether the OpenAI endpoint can be accessed from Internet or not. When `public_access_enabled` is `true` the endpoint is public, and can be accessed from Internet. Otherwise, the endpoint can only be accessed from within the internal network via private endpoint."
+  description = "Whether the OpenAI endpoint can be accessed from Internet or not. When public_access_enabled is true the endpoint is public, and can be accessed from Internet. Otherwise, the endpoint can only be accessed from within the internal network via private endpoint."
   type        = bool
   default     = false
 }
@@ -48,4 +48,10 @@ variable "tags" {
   description = "Your resource tags, if have any."
   type        = map(string)
   default     = {}
+}
+
+variable "private_endpoint_vnet_exceptions" {
+  description = "List of VNETs that use PrivateEndpoint2 for private endpoint subnet"
+  type        = list(string)
+  default     = ["dv1vnt001"]
 }
