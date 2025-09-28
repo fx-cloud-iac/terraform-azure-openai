@@ -1,27 +1,28 @@
 title 'Azure - test OpenAI resource'
 
-# Load terraform outputs
-terraform_outputs = json(File.read('../../files/terraform-output.json'))
+# load data from Terraform output
+content = inspec.profile.file('terraform-output.json')
+params = JSON.parse(content)
 
-OPENAI_RG = terraform_outputs['resource_group_name']['value']
-OPENAI_NAME = terraform_outputs['name']['value']
+OPENAI_RG = params['resource_group_name']['value']
+OPENAI_NAME = params['name']['value']
 
 control 'test-azure-openai' do
   impact 0.8
-  title 'Ensure OpenAI resource exists'
+  title 'Ensure Azure OpenAi resource exists'
   desc 'Fail when the resource doesnt exist'
-
-  describe azure_generic_resource(resource_group: OPENAI_RG, name: OPENAI_NAME) do
+  describe azure_generic_resource(resource_group: OPENAI_RG, name: OPENAI_NAME, resource_provider: 'Microsoft.CognitiveServices/accounts') do
     it { should exist }
   end
 end
 
-#control 'test-azure-openai-pep' do
-#  impact 0.8
-#  title 'Ensure OpenAI private endpoint exists'
-#  desc 'Fail when the private endpoint doesnt exist'
-#
-#  describe azure_virtual_machine_disks(resource_group: OPENAI_RG) do
-#    it { should exist }
-#  end
-#end
+# control 'test-azure-openai-pep' do
+#   impact 0.8
+#   title 'Ensure Azure private endpoint exist'
+#   desc 'Fail when the private endpoint doesnt exist'
+#   # DATA_DISKS.each do |disk|
+#   #   describe azure_virtual_machine_disks(resource_group: DISK_RG_NAME).where(attached: true).where(name: disk) do
+#   #     it { should exist }
+#   #   end
+#   # end
+# end

@@ -6,7 +6,7 @@ data "azurerm_resource_group" "rg" {
 
 data "azurerm_subnet" "pep" {
   count                = var.pep_vnet_name != "" ? 1 : 0
-  name                 = var.pep_vnet_name != "" ? (contains(["dv1vnt001"], var.pep_vnet_name) ? "PrivateEndpoint2" : "PrivateEndpoint") : ""
+  name                 = var.pep_vnet_name != "" ? (contains(var.private_endpoint_vnet_exceptions, var.pep_vnet_name) ? "PrivateEndpoint2" : "PrivateEndpoint") : ""
   virtual_network_name = var.pep_vnet_name
   resource_group_name  = var.pep_vnet_resource_group_name != "" ? var.pep_vnet_resource_group_name : data.azurerm_resource_group.rg.name
 }
